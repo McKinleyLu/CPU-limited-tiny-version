@@ -1,0 +1,75 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+ENTITY decode IS
+	PORT(		
+         code   : in std_logic_vector(30 downto 0);		--I/P Signal	
+		 BX_BUS,PC_BUS,LOAD_ACC,LOAD_BX,LOAD_CX,LOAD_IR,LOAD_MAR,LOAD_MDR,LOAD_PC,INC_BX,INC_PC,M_R,M_W,MDR_BUS,ADDER_BUS,ACC_BUS: out STD_LOGIC;--(16)
+		 SELM,SEL_ACC,SEL_C,SEL_DATA,SEL_F,SEL_Q       : out STD_LOGIC_VECTOR(1 DOWNTO 0);--(6)
+		 ALUOP                                         : out STD_LOGIC_VECTOR(4 DOWNTO 0);--(1)
+		 reset: in std_logic
+		 );
+END decode;
+
+ARCHITECTURE A OF decode IS
+begin
+PROCESS(code,reset)
+ begin 
+    if(reset = '1') then 
+    BX_BUS   <= '0';
+    PC_BUS   <= '0';
+	LOAD_ACC <= '0';
+	LOAD_BX  <= '0';
+	LOAD_CX  <= '0';
+	--
+	LOAD_IR  <= '0';
+	LOAD_MAR <= '0';
+	LOAD_MDR <= '0';
+	LOAD_PC  <= '0';
+	INC_BX   <= '0';
+	--
+	INC_PC   <= '0';
+	M_R      <= '0';
+	M_W      <= '0';
+	MDR_BUS  <= '0';
+	ADDER_BUS<= '0';
+	--
+	ACC_BUS  <= '0';
+	--
+	SEL_ACC  <= "00";
+	SEL_C    <= "00";
+	SEL_DATA <= "00";
+	SEL_F    <= "00";
+	SEL_Q    <= "00";
+	ALUOP    <= "00000";
+	else
+	BX_BUS   <= '0';
+    PC_BUS   <= '0';
+	LOAD_ACC <= '0';
+	LOAD_BX  <= '0';
+	LOAD_CX  <= '0';
+	--
+	LOAD_IR  <= code(33);
+	LOAD_MAR <= code(32);
+	LOAD_MDR <= '0';
+	LOAD_PC  <= '0';
+	INC_BX   <= '0';
+	--
+	INC_PC   <= '0';
+	M_R      <= '0';
+	M_W      <= '0';
+	MDR_BUS  <= '0';
+	ADDER_BUS<= '0';
+	--
+	ACC_BUS  <= '0';
+	--
+	SEL_ACC  <= "00";
+	SEL_C    <= "00";
+	SEL_DATA <= "00";
+	SEL_F    <= "00";
+	SEL_Q    <= "00";
+	ALUOP    <= "00000";
+	 end if;
+end process;
+end A ;

@@ -1,0 +1,887 @@
+Classic Timing Analyzer report for BX
+Sat Nov 30 11:18:19 2019
+Quartus II Version 7.2 Build 151 09/26/2007 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'CP'
+  6. Clock Hold: 'CP'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                       ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------------+------------------------------+------------+----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From                       ; To                           ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------------+------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 5.135 ns                         ; reset                      ; mainStore:inst|tempOutput[3] ; --         ; CP       ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 12.009 ns                        ; mo:inst19|SEL_ACC[1]       ; ACC_INPUT1[2]                ; CP         ; --       ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 0.757 ns                         ; reset                      ; mo:inst19|NEXTSTATE.s0_1136  ; --         ; CP       ; 0            ;
+; Clock Setup: 'CP'            ; N/A                                      ; None          ; 85.12 MHz ( period = 11.748 ns ) ; mo:inst19|SEL_DATA[0]      ; MDR:inst5|MDR_output[1]      ; CP         ; CP       ; 0            ;
+; Clock Hold: 'CP'             ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; mo:inst19|PRESENTSTATE.s12 ; mo:inst19|LOAD_PC            ; CP         ; CP       ; 105          ;
+; Total number of failed paths ;                                          ;               ;                                  ;                            ;                              ;            ;          ; 105          ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------------+------------------------------+------------+----------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                      ;
++----------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                         ; Setting            ; From ; To ; Entity Name ;
++----------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                    ; EP2S15F484C3       ;      ;    ;             ;
+; Timing Models                                                  ; Final              ;      ;    ;             ;
+; Default hold multicycle                                        ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                      ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                         ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                 ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                               ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                          ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                        ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                               ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                           ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                  ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node          ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                          ; 10                 ;      ;    ;             ;
+; Number of paths to report                                      ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                   ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                         ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                     ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                   ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis ; Off                ;      ;    ;             ;
++----------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CP              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CP'                                                                                                                                                                                                                                                      ;
++-----------------------------------------+-----------------------------------------------------+-----------------------------+------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                        ; To                           ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+-----------------------------+------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 85.12 MHz ( period = 11.748 ns )                    ; mo:inst19|SEL_DATA[0]       ; MDR:inst5|MDR_output[0]      ; CP         ; CP       ; None                        ; None                      ; 1.165 ns                ;
+; N/A                                     ; 85.12 MHz ( period = 11.748 ns )                    ; mo:inst19|SEL_DATA[0]       ; MDR:inst5|MDR_output[7]      ; CP         ; CP       ; None                        ; None                      ; 1.165 ns                ;
+; N/A                                     ; 85.12 MHz ( period = 11.748 ns )                    ; mo:inst19|SEL_DATA[0]       ; MDR:inst5|MDR_output[5]      ; CP         ; CP       ; None                        ; None                      ; 1.165 ns                ;
+; N/A                                     ; 85.12 MHz ( period = 11.748 ns )                    ; mo:inst19|SEL_DATA[0]       ; MDR:inst5|MDR_output[6]      ; CP         ; CP       ; None                        ; None                      ; 1.165 ns                ;
+; N/A                                     ; 85.12 MHz ( period = 11.748 ns )                    ; mo:inst19|SEL_DATA[0]       ; MDR:inst5|MDR_output[4]      ; CP         ; CP       ; None                        ; None                      ; 1.165 ns                ;
+; N/A                                     ; 85.12 MHz ( period = 11.748 ns )                    ; mo:inst19|SEL_DATA[0]       ; MDR:inst5|MDR_output[2]      ; CP         ; CP       ; None                        ; None                      ; 1.165 ns                ;
+; N/A                                     ; 85.12 MHz ( period = 11.748 ns )                    ; mo:inst19|SEL_DATA[0]       ; MDR:inst5|MDR_output[3]      ; CP         ; CP       ; None                        ; None                      ; 1.165 ns                ;
+; N/A                                     ; 85.12 MHz ( period = 11.748 ns )                    ; mo:inst19|SEL_DATA[0]       ; MDR:inst5|MDR_output[1]      ; CP         ; CP       ; None                        ; None                      ; 1.165 ns                ;
+; N/A                                     ; 87.81 MHz ( period = 11.388 ns )                    ; mo:inst19|SEL_DATA[1]       ; MDR:inst5|MDR_output[0]      ; CP         ; CP       ; None                        ; None                      ; 0.989 ns                ;
+; N/A                                     ; 87.81 MHz ( period = 11.388 ns )                    ; mo:inst19|SEL_DATA[1]       ; MDR:inst5|MDR_output[7]      ; CP         ; CP       ; None                        ; None                      ; 0.989 ns                ;
+; N/A                                     ; 87.81 MHz ( period = 11.388 ns )                    ; mo:inst19|SEL_DATA[1]       ; MDR:inst5|MDR_output[5]      ; CP         ; CP       ; None                        ; None                      ; 0.989 ns                ;
+; N/A                                     ; 87.81 MHz ( period = 11.388 ns )                    ; mo:inst19|SEL_DATA[1]       ; MDR:inst5|MDR_output[6]      ; CP         ; CP       ; None                        ; None                      ; 0.989 ns                ;
+; N/A                                     ; 87.81 MHz ( period = 11.388 ns )                    ; mo:inst19|SEL_DATA[1]       ; MDR:inst5|MDR_output[4]      ; CP         ; CP       ; None                        ; None                      ; 0.989 ns                ;
+; N/A                                     ; 87.81 MHz ( period = 11.388 ns )                    ; mo:inst19|SEL_DATA[1]       ; MDR:inst5|MDR_output[2]      ; CP         ; CP       ; None                        ; None                      ; 0.989 ns                ;
+; N/A                                     ; 87.81 MHz ( period = 11.388 ns )                    ; mo:inst19|SEL_DATA[1]       ; MDR:inst5|MDR_output[3]      ; CP         ; CP       ; None                        ; None                      ; 0.989 ns                ;
+; N/A                                     ; 87.81 MHz ( period = 11.388 ns )                    ; mo:inst19|SEL_DATA[1]       ; MDR:inst5|MDR_output[1]      ; CP         ; CP       ; None                        ; None                      ; 0.989 ns                ;
+; N/A                                     ; 101.19 MHz ( period = 9.882 ns )                    ; zongxian:inst1|data[0]      ; ACC:inst10|ACC_output[0]     ; CP         ; CP       ; None                        ; None                      ; 2.033 ns                ;
+; N/A                                     ; 109.65 MHz ( period = 9.120 ns )                    ; zongxian:inst1|data[2]      ; MDR:inst5|MDR_output[2]      ; CP         ; CP       ; None                        ; None                      ; 1.404 ns                ;
+; N/A                                     ; 109.82 MHz ( period = 9.106 ns )                    ; zongxian:inst1|data[0]      ; MDR:inst5|MDR_output[0]      ; CP         ; CP       ; None                        ; None                      ; 1.398 ns                ;
+; N/A                                     ; 110.50 MHz ( period = 9.050 ns )                    ; mo:inst19|NEXTSTATE.s0_1136 ; mo:inst19|PRESENTSTATE.s0    ; CP         ; CP       ; None                        ; None                      ; 0.576 ns                ;
+; N/A                                     ; 110.52 MHz ( period = 9.048 ns )                    ; zongxian:inst1|data[1]      ; MDR:inst5|MDR_output[1]      ; CP         ; CP       ; None                        ; None                      ; 1.371 ns                ;
+; N/A                                     ; 111.91 MHz ( period = 8.936 ns )                    ; zongxian:inst1|data[3]      ; MDR:inst5|MDR_output[3]      ; CP         ; CP       ; None                        ; None                      ; 1.344 ns                ;
+; N/A                                     ; 112.41 MHz ( period = 8.896 ns )                    ; mo:inst19|SEL_Q[1]          ; ACC:inst10|ACC_output[0]     ; CP         ; CP       ; None                        ; None                      ; 2.559 ns                ;
+; N/A                                     ; 113.97 MHz ( period = 8.774 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[22][7]    ; CP         ; CP       ; None                        ; None                      ; 4.199 ns                ;
+; N/A                                     ; 113.97 MHz ( period = 8.774 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[22][4]    ; CP         ; CP       ; None                        ; None                      ; 4.199 ns                ;
+; N/A                                     ; 113.97 MHz ( period = 8.774 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[22][2]    ; CP         ; CP       ; None                        ; None                      ; 4.199 ns                ;
+; N/A                                     ; 113.97 MHz ( period = 8.774 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[22][1]    ; CP         ; CP       ; None                        ; None                      ; 4.199 ns                ;
+; N/A                                     ; 114.31 MHz ( period = 8.748 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[22][7]    ; CP         ; CP       ; None                        ; None                      ; 4.199 ns                ;
+; N/A                                     ; 114.31 MHz ( period = 8.748 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[22][4]    ; CP         ; CP       ; None                        ; None                      ; 4.199 ns                ;
+; N/A                                     ; 114.31 MHz ( period = 8.748 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[22][2]    ; CP         ; CP       ; None                        ; None                      ; 4.199 ns                ;
+; N/A                                     ; 114.31 MHz ( period = 8.748 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[22][1]    ; CP         ; CP       ; None                        ; None                      ; 4.199 ns                ;
+; N/A                                     ; 114.81 MHz ( period = 8.710 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[22][7]    ; CP         ; CP       ; None                        ; None                      ; 4.165 ns                ;
+; N/A                                     ; 114.81 MHz ( period = 8.710 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[22][4]    ; CP         ; CP       ; None                        ; None                      ; 4.165 ns                ;
+; N/A                                     ; 114.81 MHz ( period = 8.710 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[22][2]    ; CP         ; CP       ; None                        ; None                      ; 4.165 ns                ;
+; N/A                                     ; 114.81 MHz ( period = 8.710 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[22][1]    ; CP         ; CP       ; None                        ; None                      ; 4.165 ns                ;
+; N/A                                     ; 116.06 MHz ( period = 8.616 ns )                    ; zongxian:inst1|data[5]      ; CX:inst13|CX_output[6]       ; CP         ; CP       ; None                        ; None                      ; 2.799 ns                ;
+; N/A                                     ; 117.01 MHz ( period = 8.546 ns )                    ; zongxian:inst1|data[1]      ; BX:inst8|Bx_output[1]        ; CP         ; CP       ; None                        ; None                      ; 1.126 ns                ;
+; N/A                                     ; 117.26 MHz ( period = 8.528 ns )                    ; mo:inst19|NEXTSTATE.s15_716 ; mo:inst19|PRESENTSTATE.s15   ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 117.29 MHz ( period = 8.526 ns )                    ; zongxian:inst1|data[1]      ; CX:inst13|CX_output[6]       ; CP         ; CP       ; None                        ; None                      ; 2.518 ns                ;
+; N/A                                     ; 117.84 MHz ( period = 8.486 ns )                    ; zongxian:inst1|data[0]      ; BX:inst8|Bx_output[0]        ; CP         ; CP       ; None                        ; None                      ; 1.094 ns                ;
+; N/A                                     ; 117.90 MHz ( period = 8.482 ns )                    ; zongxian:inst1|data[4]      ; CX:inst13|CX_output[6]       ; CP         ; CP       ; None                        ; None                      ; 2.572 ns                ;
+; N/A                                     ; 117.92 MHz ( period = 8.480 ns )                    ; zongxian:inst1|data[2]      ; BX:inst8|Bx_output[2]        ; CP         ; CP       ; None                        ; None                      ; 1.090 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[13][0]    ; CP         ; CP       ; None                        ; None                      ; 4.057 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[13][6]    ; CP         ; CP       ; None                        ; None                      ; 4.057 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[13][2]    ; CP         ; CP       ; None                        ; None                      ; 4.057 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[13][3]    ; CP         ; CP       ; None                        ; None                      ; 4.057 ns                ;
+; N/A                                     ; 118.40 MHz ( period = 8.446 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[13][0]    ; CP         ; CP       ; None                        ; None                      ; 4.040 ns                ;
+; N/A                                     ; 118.40 MHz ( period = 8.446 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[13][6]    ; CP         ; CP       ; None                        ; None                      ; 4.040 ns                ;
+; N/A                                     ; 118.40 MHz ( period = 8.446 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[13][2]    ; CP         ; CP       ; None                        ; None                      ; 4.040 ns                ;
+; N/A                                     ; 118.40 MHz ( period = 8.446 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[13][3]    ; CP         ; CP       ; None                        ; None                      ; 4.040 ns                ;
+; N/A                                     ; 118.79 MHz ( period = 8.418 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[22][7]    ; CP         ; CP       ; None                        ; None                      ; 4.034 ns                ;
+; N/A                                     ; 118.79 MHz ( period = 8.418 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[22][4]    ; CP         ; CP       ; None                        ; None                      ; 4.034 ns                ;
+; N/A                                     ; 118.79 MHz ( period = 8.418 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[22][2]    ; CP         ; CP       ; None                        ; None                      ; 4.034 ns                ;
+; N/A                                     ; 118.79 MHz ( period = 8.418 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[22][1]    ; CP         ; CP       ; None                        ; None                      ; 4.034 ns                ;
+; N/A                                     ; 119.50 MHz ( period = 8.368 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[23][4]    ; CP         ; CP       ; None                        ; None                      ; 3.983 ns                ;
+; N/A                                     ; 119.50 MHz ( period = 8.368 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[23][1]    ; CP         ; CP       ; None                        ; None                      ; 3.983 ns                ;
+; N/A                                     ; 119.73 MHz ( period = 8.352 ns )                    ; zongxian:inst1|data[2]      ; CX:inst13|CX_output[6]       ; CP         ; CP       ; None                        ; None                      ; 2.428 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[23][4]    ; CP         ; CP       ; None                        ; None                      ; 3.983 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[23][1]    ; CP         ; CP       ; None                        ; None                      ; 3.983 ns                ;
+; N/A                                     ; 119.99 MHz ( period = 8.334 ns )                    ; mo:inst19|NEXTSTATE.s11_828 ; mo:inst19|PRESENTSTATE.s11   ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 120.22 MHz ( period = 8.318 ns )                    ; zongxian:inst1|data[3]      ; BX:inst8|Bx_output[3]        ; CP         ; CP       ; None                        ; None                      ; 1.041 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[23][4]    ; CP         ; CP       ; None                        ; None                      ; 3.949 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[23][1]    ; CP         ; CP       ; None                        ; None                      ; 3.949 ns                ;
+; N/A                                     ; 120.92 MHz ( period = 8.270 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[37][2]    ; CP         ; CP       ; None                        ; None                      ; 3.937 ns                ;
+; N/A                                     ; 120.92 MHz ( period = 8.270 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[37][1]    ; CP         ; CP       ; None                        ; None                      ; 3.937 ns                ;
+; N/A                                     ; 121.62 MHz ( period = 8.222 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[13][0]    ; CP         ; CP       ; None                        ; None                      ; 3.941 ns                ;
+; N/A                                     ; 121.62 MHz ( period = 8.222 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[13][6]    ; CP         ; CP       ; None                        ; None                      ; 3.941 ns                ;
+; N/A                                     ; 121.62 MHz ( period = 8.222 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[13][2]    ; CP         ; CP       ; None                        ; None                      ; 3.941 ns                ;
+; N/A                                     ; 121.62 MHz ( period = 8.222 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[13][3]    ; CP         ; CP       ; None                        ; None                      ; 3.941 ns                ;
+; N/A                                     ; 121.71 MHz ( period = 8.216 ns )                    ; mo:inst19|NEXTSTATE.s1_1108 ; mo:inst19|PRESENTSTATE.s1    ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 121.71 MHz ( period = 8.216 ns )                    ; zongxian:inst1|data[6]      ; CX:inst13|CX_output[6]       ; CP         ; CP       ; None                        ; None                      ; 2.606 ns                ;
+; N/A                                     ; 121.83 MHz ( period = 8.208 ns )                    ; mo:inst19|NEXTSTATE.s12_800 ; mo:inst19|PRESENTSTATE.s12   ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 121.86 MHz ( period = 8.206 ns )                    ; mo:inst19|NEXTSTATE.s8_912  ; mo:inst19|PRESENTSTATE.s8    ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 121.86 MHz ( period = 8.206 ns )                    ; zongxian:inst1|data[0]      ; CX:inst13|CX_output[6]       ; CP         ; CP       ; None                        ; None                      ; 2.356 ns                ;
+; N/A                                     ; 121.86 MHz ( period = 8.206 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[38][4]    ; CP         ; CP       ; None                        ; None                      ; 3.928 ns                ;
+; N/A                                     ; 121.86 MHz ( period = 8.206 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[38][2]    ; CP         ; CP       ; None                        ; None                      ; 3.928 ns                ;
+; N/A                                     ; 121.86 MHz ( period = 8.206 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[38][1]    ; CP         ; CP       ; None                        ; None                      ; 3.928 ns                ;
+; N/A                                     ; 121.98 MHz ( period = 8.198 ns )                    ; mo:inst19|NEXTSTATE.s14_744 ; mo:inst19|PRESENTSTATE.s14   ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 122.55 MHz ( period = 8.160 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|tempOutput[1] ; CP         ; CP       ; None                        ; None                      ; 3.869 ns                ;
+; N/A                                     ; 122.82 MHz ( period = 8.142 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[31][0]    ; CP         ; CP       ; None                        ; None                      ; 3.870 ns                ;
+; N/A                                     ; 122.82 MHz ( period = 8.142 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[31][2]    ; CP         ; CP       ; None                        ; None                      ; 3.870 ns                ;
+; N/A                                     ; 122.82 MHz ( period = 8.142 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[31][3]    ; CP         ; CP       ; None                        ; None                      ; 3.870 ns                ;
+; N/A                                     ; 122.94 MHz ( period = 8.134 ns )                    ; MAR:inst6|MAR_output[1]     ; mainStore:inst|tempOutput[6] ; CP         ; CP       ; None                        ; None                      ; 3.875 ns                ;
+; N/A                                     ; 123.03 MHz ( period = 8.128 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[28][0]    ; CP         ; CP       ; None                        ; None                      ; 3.863 ns                ;
+; N/A                                     ; 123.03 MHz ( period = 8.128 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[28][7]    ; CP         ; CP       ; None                        ; None                      ; 3.863 ns                ;
+; N/A                                     ; 123.03 MHz ( period = 8.128 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[28][5]    ; CP         ; CP       ; None                        ; None                      ; 3.863 ns                ;
+; N/A                                     ; 123.03 MHz ( period = 8.128 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[28][6]    ; CP         ; CP       ; None                        ; None                      ; 3.863 ns                ;
+; N/A                                     ; 123.03 MHz ( period = 8.128 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[28][4]    ; CP         ; CP       ; None                        ; None                      ; 3.863 ns                ;
+; N/A                                     ; 123.03 MHz ( period = 8.128 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[28][2]    ; CP         ; CP       ; None                        ; None                      ; 3.863 ns                ;
+; N/A                                     ; 123.03 MHz ( period = 8.128 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[28][3]    ; CP         ; CP       ; None                        ; None                      ; 3.863 ns                ;
+; N/A                                     ; 123.03 MHz ( period = 8.128 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[28][1]    ; CP         ; CP       ; None                        ; None                      ; 3.863 ns                ;
+; N/A                                     ; 123.21 MHz ( period = 8.116 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[21][2]    ; CP         ; CP       ; None                        ; None                      ; 3.847 ns                ;
+; N/A                                     ; 123.21 MHz ( period = 8.116 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[21][1]    ; CP         ; CP       ; None                        ; None                      ; 3.847 ns                ;
+; N/A                                     ; 123.40 MHz ( period = 8.104 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|tempOutput[3] ; CP         ; CP       ; None                        ; None                      ; 3.858 ns                ;
+; N/A                                     ; 123.61 MHz ( period = 8.090 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[21][2]    ; CP         ; CP       ; None                        ; None                      ; 3.847 ns                ;
+; N/A                                     ; 123.61 MHz ( period = 8.090 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[21][1]    ; CP         ; CP       ; None                        ; None                      ; 3.847 ns                ;
+; N/A                                     ; 123.64 MHz ( period = 8.088 ns )                    ; zongxian:inst1|data[7]      ; MDR:inst5|MDR_output[7]      ; CP         ; CP       ; None                        ; None                      ; 1.128 ns                ;
+; N/A                                     ; 123.82 MHz ( period = 8.076 ns )                    ; MAR:inst6|MAR_output[0]     ; mainStore:inst|tempOutput[5] ; CP         ; CP       ; None                        ; None                      ; 3.846 ns                ;
+; N/A                                     ; 123.95 MHz ( period = 8.068 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[27][0]    ; CP         ; CP       ; None                        ; None                      ; 3.836 ns                ;
+; N/A                                     ; 123.95 MHz ( period = 8.068 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[27][2]    ; CP         ; CP       ; None                        ; None                      ; 3.836 ns                ;
+; N/A                                     ; 123.95 MHz ( period = 8.068 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[27][1]    ; CP         ; CP       ; None                        ; None                      ; 3.836 ns                ;
+; N/A                                     ; 124.07 MHz ( period = 8.060 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[15][0]    ; CP         ; CP       ; None                        ; None                      ; 3.860 ns                ;
+; N/A                                     ; 124.07 MHz ( period = 8.060 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[15][6]    ; CP         ; CP       ; None                        ; None                      ; 3.860 ns                ;
+; N/A                                     ; 124.07 MHz ( period = 8.060 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[15][2]    ; CP         ; CP       ; None                        ; None                      ; 3.860 ns                ;
+; N/A                                     ; 124.07 MHz ( period = 8.060 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[15][3]    ; CP         ; CP       ; None                        ; None                      ; 3.860 ns                ;
+; N/A                                     ; 124.16 MHz ( period = 8.054 ns )                    ; zongxian:inst1|data[3]      ; CX:inst13|CX_output[6]       ; CP         ; CP       ; None                        ; None                      ; 2.311 ns                ;
+; N/A                                     ; 124.19 MHz ( period = 8.052 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[15][0]    ; CP         ; CP       ; None                        ; None                      ; 3.843 ns                ;
+; N/A                                     ; 124.19 MHz ( period = 8.052 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[15][6]    ; CP         ; CP       ; None                        ; None                      ; 3.843 ns                ;
+; N/A                                     ; 124.19 MHz ( period = 8.052 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[21][2]    ; CP         ; CP       ; None                        ; None                      ; 3.813 ns                ;
+; N/A                                     ; 124.19 MHz ( period = 8.052 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[15][2]    ; CP         ; CP       ; None                        ; None                      ; 3.843 ns                ;
+; N/A                                     ; 124.19 MHz ( period = 8.052 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[15][3]    ; CP         ; CP       ; None                        ; None                      ; 3.843 ns                ;
+; N/A                                     ; 124.19 MHz ( period = 8.052 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[21][1]    ; CP         ; CP       ; None                        ; None                      ; 3.813 ns                ;
+; N/A                                     ; 124.38 MHz ( period = 8.040 ns )                    ; zongxian:inst1|data[6]      ; MDR:inst5|MDR_output[6]      ; CP         ; CP       ; None                        ; None                      ; 1.110 ns                ;
+; N/A                                     ; 124.44 MHz ( period = 8.036 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[13][7]    ; CP         ; CP       ; None                        ; None                      ; 3.828 ns                ;
+; N/A                                     ; 124.44 MHz ( period = 8.036 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[13][5]    ; CP         ; CP       ; None                        ; None                      ; 3.828 ns                ;
+; N/A                                     ; 124.44 MHz ( period = 8.036 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[13][4]    ; CP         ; CP       ; None                        ; None                      ; 3.828 ns                ;
+; N/A                                     ; 124.44 MHz ( period = 8.036 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[13][1]    ; CP         ; CP       ; None                        ; None                      ; 3.828 ns                ;
+; N/A                                     ; 124.56 MHz ( period = 8.028 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[13][7]    ; CP         ; CP       ; None                        ; None                      ; 3.811 ns                ;
+; N/A                                     ; 124.56 MHz ( period = 8.028 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[13][5]    ; CP         ; CP       ; None                        ; None                      ; 3.811 ns                ;
+; N/A                                     ; 124.56 MHz ( period = 8.028 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[13][4]    ; CP         ; CP       ; None                        ; None                      ; 3.811 ns                ;
+; N/A                                     ; 124.56 MHz ( period = 8.028 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[13][1]    ; CP         ; CP       ; None                        ; None                      ; 3.811 ns                ;
+; N/A                                     ; 124.78 MHz ( period = 8.014 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[12][7]    ; CP         ; CP       ; None                        ; None                      ; 3.836 ns                ;
+; N/A                                     ; 124.78 MHz ( period = 8.014 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[12][5]    ; CP         ; CP       ; None                        ; None                      ; 3.836 ns                ;
+; N/A                                     ; 124.78 MHz ( period = 8.014 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[12][1]    ; CP         ; CP       ; None                        ; None                      ; 3.836 ns                ;
+; N/A                                     ; 124.81 MHz ( period = 8.012 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[23][4]    ; CP         ; CP       ; None                        ; None                      ; 3.818 ns                ;
+; N/A                                     ; 124.81 MHz ( period = 8.012 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[23][1]    ; CP         ; CP       ; None                        ; None                      ; 3.818 ns                ;
+; N/A                                     ; 124.84 MHz ( period = 8.010 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[29][0]    ; CP         ; CP       ; None                        ; None                      ; 3.804 ns                ;
+; N/A                                     ; 124.84 MHz ( period = 8.010 ns )                    ; zongxian:inst1|data[4]      ; MDR:inst5|MDR_output[4]      ; CP         ; CP       ; None                        ; None                      ; 0.928 ns                ;
+; N/A                                     ; 124.84 MHz ( period = 8.010 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[29][6]    ; CP         ; CP       ; None                        ; None                      ; 3.804 ns                ;
+; N/A                                     ; 124.84 MHz ( period = 8.010 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[29][2]    ; CP         ; CP       ; None                        ; None                      ; 3.804 ns                ;
+; N/A                                     ; 124.84 MHz ( period = 8.010 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[29][3]    ; CP         ; CP       ; None                        ; None                      ; 3.804 ns                ;
+; N/A                                     ; 124.91 MHz ( period = 8.006 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[12][7]    ; CP         ; CP       ; None                        ; None                      ; 3.819 ns                ;
+; N/A                                     ; 124.91 MHz ( period = 8.006 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[12][5]    ; CP         ; CP       ; None                        ; None                      ; 3.819 ns                ;
+; N/A                                     ; 124.91 MHz ( period = 8.006 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[12][1]    ; CP         ; CP       ; None                        ; None                      ; 3.819 ns                ;
+; N/A                                     ; 125.09 MHz ( period = 7.994 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[12][0]    ; CP         ; CP       ; None                        ; None                      ; 3.827 ns                ;
+; N/A                                     ; 125.09 MHz ( period = 7.994 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[12][6]    ; CP         ; CP       ; None                        ; None                      ; 3.827 ns                ;
+; N/A                                     ; 125.09 MHz ( period = 7.994 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[12][4]    ; CP         ; CP       ; None                        ; None                      ; 3.827 ns                ;
+; N/A                                     ; 125.09 MHz ( period = 7.994 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[12][2]    ; CP         ; CP       ; None                        ; None                      ; 3.827 ns                ;
+; N/A                                     ; 125.09 MHz ( period = 7.994 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|reg[12][3]    ; CP         ; CP       ; None                        ; None                      ; 3.827 ns                ;
+; N/A                                     ; 125.22 MHz ( period = 7.986 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[30][0]    ; CP         ; CP       ; None                        ; None                      ; 3.792 ns                ;
+; N/A                                     ; 125.22 MHz ( period = 7.986 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[12][0]    ; CP         ; CP       ; None                        ; None                      ; 3.810 ns                ;
+; N/A                                     ; 125.22 MHz ( period = 7.986 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[12][6]    ; CP         ; CP       ; None                        ; None                      ; 3.810 ns                ;
+; N/A                                     ; 125.22 MHz ( period = 7.986 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[30][6]    ; CP         ; CP       ; None                        ; None                      ; 3.792 ns                ;
+; N/A                                     ; 125.22 MHz ( period = 7.986 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[12][4]    ; CP         ; CP       ; None                        ; None                      ; 3.810 ns                ;
+; N/A                                     ; 125.22 MHz ( period = 7.986 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[12][2]    ; CP         ; CP       ; None                        ; None                      ; 3.810 ns                ;
+; N/A                                     ; 125.22 MHz ( period = 7.986 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[30][2]    ; CP         ; CP       ; None                        ; None                      ; 3.792 ns                ;
+; N/A                                     ; 125.22 MHz ( period = 7.986 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[30][3]    ; CP         ; CP       ; None                        ; None                      ; 3.792 ns                ;
+; N/A                                     ; 125.22 MHz ( period = 7.986 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[12][3]    ; CP         ; CP       ; None                        ; None                      ; 3.810 ns                ;
+; N/A                                     ; 125.25 MHz ( period = 7.984 ns )                    ; MAR:inst6|MAR_output[0]     ; mainStore:inst|reg[22][7]    ; CP         ; CP       ; None                        ; None                      ; 3.802 ns                ;
+; N/A                                     ; 125.25 MHz ( period = 7.984 ns )                    ; MAR:inst6|MAR_output[0]     ; mainStore:inst|reg[22][4]    ; CP         ; CP       ; None                        ; None                      ; 3.802 ns                ;
+; N/A                                     ; 125.25 MHz ( period = 7.984 ns )                    ; MAR:inst6|MAR_output[0]     ; mainStore:inst|reg[22][2]    ; CP         ; CP       ; None                        ; None                      ; 3.802 ns                ;
+; N/A                                     ; 125.25 MHz ( period = 7.984 ns )                    ; MAR:inst6|MAR_output[0]     ; mainStore:inst|reg[22][1]    ; CP         ; CP       ; None                        ; None                      ; 3.802 ns                ;
+; N/A                                     ; 125.34 MHz ( period = 7.978 ns )                    ; MAR:inst6|MAR_output[4]     ; mainStore:inst|tempOutput[2] ; CP         ; CP       ; None                        ; None                      ; 3.791 ns                ;
+; N/A                                     ; 125.38 MHz ( period = 7.976 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|tempOutput[1] ; CP         ; CP       ; None                        ; None                      ; 3.775 ns                ;
+; N/A                                     ; 125.72 MHz ( period = 7.954 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[27][0]    ; CP         ; CP       ; None                        ; None                      ; 3.766 ns                ;
+; N/A                                     ; 125.72 MHz ( period = 7.954 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[27][2]    ; CP         ; CP       ; None                        ; None                      ; 3.766 ns                ;
+; N/A                                     ; 125.72 MHz ( period = 7.954 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[27][1]    ; CP         ; CP       ; None                        ; None                      ; 3.766 ns                ;
+; N/A                                     ; 126.36 MHz ( period = 7.914 ns )                    ; MAR:inst6|MAR_output[1]     ; mainStore:inst|tempOutput[3] ; CP         ; CP       ; None                        ; None                      ; 3.763 ns                ;
+; N/A                                     ; 126.45 MHz ( period = 7.908 ns )                    ; mo:inst19|NEXTSTATE.s3_1052 ; mo:inst19|PRESENTSTATE.s3    ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 126.52 MHz ( period = 7.904 ns )                    ; mo:inst19|NEXTSTATE.s4_1024 ; mo:inst19|PRESENTSTATE.s4    ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 126.55 MHz ( period = 7.902 ns )                    ; mo:inst19|NEXTSTATE.s7_940  ; mo:inst19|PRESENTSTATE.s7    ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 126.55 MHz ( period = 7.902 ns )                    ; mo:inst19|NEXTSTATE.s6_968  ; mo:inst19|PRESENTSTATE.s6    ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 126.61 MHz ( period = 7.898 ns )                    ; mo:inst19|NEXTSTATE.s13_772 ; mo:inst19|PRESENTSTATE.s13   ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 126.65 MHz ( period = 7.896 ns )                    ; mo:inst19|NEXTSTATE.s5_996  ; mo:inst19|PRESENTSTATE.s5    ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 126.71 MHz ( period = 7.892 ns )                    ; mo:inst19|NEXTSTATE.s2_1080 ; mo:inst19|PRESENTSTATE.s2    ; CP         ; CP       ; None                        ; None                      ; 0.155 ns                ;
+; N/A                                     ; 126.77 MHz ( period = 7.888 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[27][0]    ; CP         ; CP       ; None                        ; None                      ; 3.731 ns                ;
+; N/A                                     ; 126.77 MHz ( period = 7.888 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[29][7]    ; CP         ; CP       ; None                        ; None                      ; 3.754 ns                ;
+; N/A                                     ; 126.77 MHz ( period = 7.888 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[29][5]    ; CP         ; CP       ; None                        ; None                      ; 3.754 ns                ;
+; N/A                                     ; 126.77 MHz ( period = 7.888 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[29][4]    ; CP         ; CP       ; None                        ; None                      ; 3.754 ns                ;
+; N/A                                     ; 126.77 MHz ( period = 7.888 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[27][2]    ; CP         ; CP       ; None                        ; None                      ; 3.731 ns                ;
+; N/A                                     ; 126.77 MHz ( period = 7.888 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[27][1]    ; CP         ; CP       ; None                        ; None                      ; 3.731 ns                ;
+; N/A                                     ; 126.77 MHz ( period = 7.888 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[29][1]    ; CP         ; CP       ; None                        ; None                      ; 3.754 ns                ;
+; N/A                                     ; 126.90 MHz ( period = 7.880 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[37][2]    ; CP         ; CP       ; None                        ; None                      ; 3.727 ns                ;
+; N/A                                     ; 126.90 MHz ( period = 7.880 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[37][1]    ; CP         ; CP       ; None                        ; None                      ; 3.727 ns                ;
+; N/A                                     ; 127.19 MHz ( period = 7.862 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[21][7]    ; CP         ; CP       ; None                        ; None                      ; 3.724 ns                ;
+; N/A                                     ; 127.19 MHz ( period = 7.862 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[21][4]    ; CP         ; CP       ; None                        ; None                      ; 3.724 ns                ;
+; N/A                                     ; 127.23 MHz ( period = 7.860 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|tempOutput[3] ; CP         ; CP       ; None                        ; None                      ; 3.738 ns                ;
+; N/A                                     ; 127.29 MHz ( period = 7.856 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|tempOutput[4] ; CP         ; CP       ; None                        ; None                      ; 3.734 ns                ;
+; N/A                                     ; 127.49 MHz ( period = 7.844 ns )                    ; MAR:inst6|MAR_output[1]     ; mainStore:inst|tempOutput[5] ; CP         ; CP       ; None                        ; None                      ; 3.730 ns                ;
+; N/A                                     ; 127.62 MHz ( period = 7.836 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|tempOutput[5] ; CP         ; CP       ; None                        ; None                      ; 3.741 ns                ;
+; N/A                                     ; 127.62 MHz ( period = 7.836 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[21][7]    ; CP         ; CP       ; None                        ; None                      ; 3.724 ns                ;
+; N/A                                     ; 127.62 MHz ( period = 7.836 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[21][4]    ; CP         ; CP       ; None                        ; None                      ; 3.724 ns                ;
+; N/A                                     ; 127.68 MHz ( period = 7.832 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[60][7]    ; CP         ; CP       ; None                        ; None                      ; 3.753 ns                ;
+; N/A                                     ; 127.68 MHz ( period = 7.832 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[60][5]    ; CP         ; CP       ; None                        ; None                      ; 3.753 ns                ;
+; N/A                                     ; 127.68 MHz ( period = 7.832 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[60][6]    ; CP         ; CP       ; None                        ; None                      ; 3.753 ns                ;
+; N/A                                     ; 127.68 MHz ( period = 7.832 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[60][2]    ; CP         ; CP       ; None                        ; None                      ; 3.753 ns                ;
+; N/A                                     ; 127.71 MHz ( period = 7.830 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[37][4]    ; CP         ; CP       ; None                        ; None                      ; 3.738 ns                ;
+; N/A                                     ; 127.75 MHz ( period = 7.828 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[15][0]    ; CP         ; CP       ; None                        ; None                      ; 3.744 ns                ;
+; N/A                                     ; 127.75 MHz ( period = 7.828 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[15][6]    ; CP         ; CP       ; None                        ; None                      ; 3.744 ns                ;
+; N/A                                     ; 127.75 MHz ( period = 7.828 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[15][2]    ; CP         ; CP       ; None                        ; None                      ; 3.744 ns                ;
+; N/A                                     ; 127.75 MHz ( period = 7.828 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[15][3]    ; CP         ; CP       ; None                        ; None                      ; 3.744 ns                ;
+; N/A                                     ; 127.94 MHz ( period = 7.816 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[38][4]    ; CP         ; CP       ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 127.94 MHz ( period = 7.816 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[38][2]    ; CP         ; CP       ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 127.94 MHz ( period = 7.816 ns )                    ; MAR:inst6|MAR_output[2]     ; mainStore:inst|reg[38][1]    ; CP         ; CP       ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 128.11 MHz ( period = 7.806 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[31][0]    ; CP         ; CP       ; None                        ; None                      ; 3.689 ns                ;
+; N/A                                     ; 128.11 MHz ( period = 7.806 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[31][2]    ; CP         ; CP       ; None                        ; None                      ; 3.689 ns                ;
+; N/A                                     ; 128.11 MHz ( period = 7.806 ns )                    ; MAR:inst6|MAR_output[3]     ; mainStore:inst|reg[31][3]    ; CP         ; CP       ; None                        ; None                      ; 3.689 ns                ;
+; N/A                                     ; 128.14 MHz ( period = 7.804 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[13][7]    ; CP         ; CP       ; None                        ; None                      ; 3.712 ns                ;
+; N/A                                     ; 128.14 MHz ( period = 7.804 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[13][5]    ; CP         ; CP       ; None                        ; None                      ; 3.712 ns                ;
+; N/A                                     ; 128.14 MHz ( period = 7.804 ns )                    ; MAR:inst6|MAR_output[5]     ; mainStore:inst|reg[13][4]    ; CP         ; CP       ; None                        ; None                      ; 3.712 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                             ;                              ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+-----------------------------+------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'CP'                                                                                                                                                                                                 ;
++------------------------------------------+----------------------------+-----------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                       ; To                          ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------------------------+-----------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s12 ; mo:inst19|LOAD_PC           ; CP         ; CP       ; None                       ; None                       ; 1.253 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s1  ; mo:inst19|NEXTSTATE.s2_1080 ; CP         ; CP       ; None                       ; None                       ; 0.706 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s10 ; mo:inst19|SEL_DATA[0]       ; CP         ; CP       ; None                       ; None                       ; 0.936 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s10 ; mo:inst19|SEL_DATA[1]       ; CP         ; CP       ; None                       ; None                       ; 0.936 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s8_912  ; CP         ; CP       ; None                       ; None                       ; 0.908 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s8  ; mo:inst19|SEL_ACC[1]        ; CP         ; CP       ; None                       ; None                       ; 0.599 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s13_772 ; CP         ; CP       ; None                       ; None                       ; 1.071 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[0]        ; mo:inst19|NEXTSTATE.s4_1024 ; CP         ; CP       ; None                       ; None                       ; 1.089 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s3_1052 ; CP         ; CP       ; None                       ; None                       ; 1.111 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s6_968  ; CP         ; CP       ; None                       ; None                       ; 1.133 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s8  ; mo:inst19|SEL_ACC[0]        ; CP         ; CP       ; None                       ; None                       ; 0.762 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s7_940  ; CP         ; CP       ; None                       ; None                       ; 1.174 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s14 ; mo:inst19|NEXTSTATE.s7_940  ; CP         ; CP       ; None                       ; None                       ; 1.212 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s14 ; mo:inst19|NEXTSTATE.s4_1024 ; CP         ; CP       ; None                       ; None                       ; 1.252 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s13_772 ; CP         ; CP       ; None                       ; None                       ; 1.255 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[0]        ; mo:inst19|NEXTSTATE.s8_912  ; CP         ; CP       ; None                       ; None                       ; 1.249 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; mo:inst19|NEXTSTATE.s3_1052 ; CP         ; CP       ; None                       ; None                       ; 1.103 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s8_912  ; CP         ; CP       ; None                       ; None                       ; 1.279 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s7_940  ; CP         ; CP       ; None                       ; None                       ; 1.331 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s14_744 ; CP         ; CP       ; None                       ; None                       ; 1.314 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[0]        ; mo:inst19|NEXTSTATE.s14_744 ; CP         ; CP       ; None                       ; None                       ; 1.336 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; mo:inst19|NEXTSTATE.s13_772 ; CP         ; CP       ; None                       ; None                       ; 1.192 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s3  ; mo:inst19|NEXTSTATE.s14_744 ; CP         ; CP       ; None                       ; None                       ; 1.159 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s5_996  ; CP         ; CP       ; None                       ; None                       ; 1.406 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s14 ; mo:inst19|NEXTSTATE.s8_912  ; CP         ; CP       ; None                       ; None                       ; 1.379 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s14 ; mo:inst19|NEXTSTATE.s5_996  ; CP         ; CP       ; None                       ; None                       ; 1.444 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s3_1052 ; CP         ; CP       ; None                       ; None                       ; 1.460 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s10 ; mo:inst19|NEXTSTATE.s11_828 ; CP         ; CP       ; None                       ; None                       ; 0.931 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[0]        ; mo:inst19|NEXTSTATE.s7_940  ; CP         ; CP       ; None                       ; None                       ; 1.498 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s4_1024 ; CP         ; CP       ; None                       ; None                       ; 1.512 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s10_856 ; CP         ; CP       ; None                       ; None                       ; 1.322 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s14_744 ; CP         ; CP       ; None                       ; None                       ; 1.511 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s6_968  ; CP         ; CP       ; None                       ; None                       ; 1.556 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s5_996  ; CP         ; CP       ; None                       ; None                       ; 1.562 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s13 ; mo:inst19|NEXTSTATE.s15_716 ; CP         ; CP       ; None                       ; None                       ; 1.292 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s13 ; mo:inst19|SEL_C[1]          ; CP         ; CP       ; None                       ; None                       ; 1.393 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s13 ; mo:inst19|SEL_C[0]          ; CP         ; CP       ; None                       ; None                       ; 1.393 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s11 ; mo:inst19|NEXTSTATE.s0_1136 ; CP         ; CP       ; None                       ; None                       ; 1.859 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s15 ; mo:inst19|NEXTSTATE.s0_1136 ; CP         ; CP       ; None                       ; None                       ; 1.961 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s6  ; mo:inst19|NEXTSTATE.s14_744 ; CP         ; CP       ; None                       ; None                       ; 1.537 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[0]        ; mo:inst19|NEXTSTATE.s5_996  ; CP         ; CP       ; None                       ; None                       ; 1.762 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|adr[4]            ; zongxian:inst1|data[4]      ; CP         ; CP       ; None                       ; None                       ; 0.853 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[0]        ; mo:inst19|NEXTSTATE.s6_968  ; CP         ; CP       ; None                       ; None                       ; 1.773 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; mo:inst19|NEXTSTATE.s6_968  ; CP         ; CP       ; None                       ; None                       ; 1.618 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s4  ; mo:inst19|NEXTSTATE.s0_1136 ; CP         ; CP       ; None                       ; None                       ; 1.587 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s10_856 ; CP         ; CP       ; None                       ; None                       ; 1.613 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s4_1024 ; CP         ; CP       ; None                       ; None                       ; 1.862 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s0  ; mo:inst19|NEXTSTATE.s1_1108 ; CP         ; CP       ; None                       ; None                       ; 1.865 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|adr[3]            ; zongxian:inst1|data[3]      ; CP         ; CP       ; None                       ; None                       ; 1.035 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pc:inst7|addr[7]           ; zongxian:inst1|data[7]      ; CP         ; CP       ; None                       ; None                       ; 0.862 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s12 ; mo:inst19|NEXTSTATE.s0_1136 ; CP         ; CP       ; None                       ; None                       ; 1.905 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s8  ; mo:inst19|NEXTSTATE.s0_1136 ; CP         ; CP       ; None                       ; None                       ; 1.944 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s7  ; mo:inst19|NEXTSTATE.s0_1136 ; CP         ; CP       ; None                       ; None                       ; 1.768 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[0]        ; mo:inst19|NEXTSTATE.s10_856 ; CP         ; CP       ; None                       ; None                       ; 1.782 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pc:inst7|addr[4]           ; zongxian:inst1|data[4]      ; CP         ; CP       ; None                       ; None                       ; 1.101 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s5  ; mo:inst19|NEXTSTATE.s0_1136 ; CP         ; CP       ; None                       ; None                       ; 1.803 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s0  ; mo:inst19|NEXTSTATE.s0_1136 ; CP         ; CP       ; None                       ; None                       ; 2.072 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[0]        ; mo:inst19|NEXTSTATE.s12_800 ; CP         ; CP       ; None                       ; None                       ; 2.096 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pc:inst7|addr[6]           ; zongxian:inst1|data[6]      ; CP         ; CP       ; None                       ; None                       ; 1.091 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pc:inst7|addr[5]           ; zongxian:inst1|data[5]      ; CP         ; CP       ; None                       ; None                       ; 1.117 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s6  ; mo:inst19|NEXTSTATE.s10_856 ; CP         ; CP       ; None                       ; None                       ; 1.807 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|adr[2]            ; zongxian:inst1|data[2]      ; CP         ; CP       ; None                       ; None                       ; 1.386 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; mo:inst19|NEXTSTATE.s12_800 ; CP         ; CP       ; None                       ; None                       ; 2.020 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|adr[1]            ; zongxian:inst1|data[1]      ; CP         ; CP       ; None                       ; None                       ; 1.407 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pc:inst7|addr[1]           ; zongxian:inst1|data[1]      ; CP         ; CP       ; None                       ; None                       ; 1.432 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[2]        ; mo:inst19|NEXTSTATE.s12_800 ; CP         ; CP       ; None                       ; None                       ; 2.237 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pc:inst7|addr[3]           ; zongxian:inst1|data[3]      ; CP         ; CP       ; None                       ; None                       ; 1.444 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|adr[0]            ; zongxian:inst1|data[0]      ; CP         ; CP       ; None                       ; None                       ; 1.546 ns                 ;
+; Not operational: Clock Skew > Data Delay ; BX:inst8|Bx_output[7]      ; zongxian:inst1|data[7]      ; CP         ; CP       ; None                       ; None                       ; 1.309 ns                 ;
+; Not operational: Clock Skew > Data Delay ; BX:inst8|Bx_output[4]      ; zongxian:inst1|data[4]      ; CP         ; CP       ; None                       ; None                       ; 1.536 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ir:inst9|command[1]        ; mo:inst19|NEXTSTATE.s12_800 ; CP         ; CP       ; None                       ; None                       ; 2.419 ns                 ;
+; Not operational: Clock Skew > Data Delay ; MDR:inst5|MDR_output[7]    ; zongxian:inst1|data[7]      ; CP         ; CP       ; None                       ; None                       ; 1.454 ns                 ;
+; Not operational: Clock Skew > Data Delay ; BX:inst8|Bx_output[5]      ; zongxian:inst1|data[5]      ; CP         ; CP       ; None                       ; None                       ; 1.519 ns                 ;
+; Not operational: Clock Skew > Data Delay ; MDR:inst5|MDR_output[4]    ; zongxian:inst1|data[4]      ; CP         ; CP       ; None                       ; None                       ; 1.768 ns                 ;
+; Not operational: Clock Skew > Data Delay ; BX:inst8|Bx_output[3]      ; zongxian:inst1|data[3]      ; CP         ; CP       ; None                       ; None                       ; 1.859 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pc:inst7|addr[0]           ; zongxian:inst1|data[0]      ; CP         ; CP       ; None                       ; None                       ; 1.971 ns                 ;
+; Not operational: Clock Skew > Data Delay ; BX:inst8|Bx_output[0]      ; zongxian:inst1|data[0]      ; CP         ; CP       ; None                       ; None                       ; 2.059 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pc:inst7|addr[2]           ; zongxian:inst1|data[2]      ; CP         ; CP       ; None                       ; None                       ; 2.075 ns                 ;
+; Not operational: Clock Skew > Data Delay ; MDR:inst5|MDR_output[6]    ; zongxian:inst1|data[6]      ; CP         ; CP       ; None                       ; None                       ; 1.900 ns                 ;
+; Not operational: Clock Skew > Data Delay ; BX:inst8|Bx_output[6]      ; zongxian:inst1|data[6]      ; CP         ; CP       ; None                       ; None                       ; 1.911 ns                 ;
+; Not operational: Clock Skew > Data Delay ; BX:inst8|Bx_output[2]      ; zongxian:inst1|data[2]      ; CP         ; CP       ; None                       ; None                       ; 2.235 ns                 ;
+; Not operational: Clock Skew > Data Delay ; MDR:inst5|MDR_output[3]    ; zongxian:inst1|data[3]      ; CP         ; CP       ; None                       ; None                       ; 2.212 ns                 ;
+; Not operational: Clock Skew > Data Delay ; MDR:inst5|MDR_output[5]    ; zongxian:inst1|data[5]      ; CP         ; CP       ; None                       ; None                       ; 2.044 ns                 ;
+; Not operational: Clock Skew > Data Delay ; BX:inst8|Bx_output[1]      ; zongxian:inst1|data[1]      ; CP         ; CP       ; None                       ; None                       ; 2.346 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; zongxian:inst1|data[4]      ; CP         ; CP       ; None                       ; None                       ; 1.898 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s3  ; zongxian:inst1|data[4]      ; CP         ; CP       ; None                       ; None                       ; 1.967 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s13 ; mo:inst19|SEL_Q[1]          ; CP         ; CP       ; None                       ; None                       ; 1.037 ns                 ;
+; Not operational: Clock Skew > Data Delay ; MDR:inst5|MDR_output[2]    ; zongxian:inst1|data[2]      ; CP         ; CP       ; None                       ; None                       ; 2.509 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; zongxian:inst1|data[7]      ; CP         ; CP       ; None                       ; None                       ; 1.907 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s3  ; zongxian:inst1|data[3]      ; CP         ; CP       ; None                       ; None                       ; 2.128 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s6  ; zongxian:inst1|data[4]      ; CP         ; CP       ; None                       ; None                       ; 2.229 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; zongxian:inst1|data[3]      ; CP         ; CP       ; None                       ; None                       ; 2.312 ns                 ;
+; Not operational: Clock Skew > Data Delay ; MDR:inst5|MDR_output[1]    ; zongxian:inst1|data[1]      ; CP         ; CP       ; None                       ; None                       ; 2.812 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; zongxian:inst1|data[6]      ; CP         ; CP       ; None                       ; None                       ; 2.136 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s5  ; zongxian:inst1|data[7]      ; CP         ; CP       ; None                       ; None                       ; 2.144 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s7  ; zongxian:inst1|data[7]      ; CP         ; CP       ; None                       ; None                       ; 2.174 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s3  ; zongxian:inst1|data[2]      ; CP         ; CP       ; None                       ; None                       ; 2.415 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s4  ; zongxian:inst1|data[4]      ; CP         ; CP       ; None                       ; None                       ; 2.341 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s4  ; zongxian:inst1|data[7]      ; CP         ; CP       ; None                       ; None                       ; 2.183 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s3  ; zongxian:inst1|data[1]      ; CP         ; CP       ; None                       ; None                       ; 2.436 ns                 ;
+; Not operational: Clock Skew > Data Delay ; MDR:inst5|MDR_output[0]    ; zongxian:inst1|data[0]      ; CP         ; CP       ; None                       ; None                       ; 2.881 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s6  ; zongxian:inst1|data[7]      ; CP         ; CP       ; None                       ; None                       ; 2.238 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; zongxian:inst1|data[5]      ; CP         ; CP       ; None                       ; None                       ; 2.260 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; zongxian:inst1|data[2]      ; CP         ; CP       ; None                       ; None                       ; 2.505 ns                 ;
+; Not operational: Clock Skew > Data Delay ; mo:inst19|PRESENTSTATE.s2  ; zongxian:inst1|data[1]      ; CP         ; CP       ; None                       ; None                       ; 2.526 ns                 ;
++------------------------------------------+----------------------------+-----------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; tsu                                                                                 ;
++-------+--------------+------------+-------+------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From  ; To                           ; To Clock ;
++-------+--------------+------------+-------+------------------------------+----------+
+; N/A   ; None         ; 5.135 ns   ; reset ; mainStore:inst|tempOutput[4] ; CP       ;
+; N/A   ; None         ; 5.135 ns   ; reset ; mainStore:inst|tempOutput[3] ; CP       ;
+; N/A   ; None         ; 4.811 ns   ; reset ; mainStore:inst|tempOutput[2] ; CP       ;
+; N/A   ; None         ; 4.811 ns   ; reset ; mainStore:inst|tempOutput[1] ; CP       ;
+; N/A   ; None         ; 4.618 ns   ; reset ; mainStore:inst|tempOutput[0] ; CP       ;
+; N/A   ; None         ; 4.503 ns   ; reset ; mainStore:inst|tempOutput[7] ; CP       ;
+; N/A   ; None         ; 4.503 ns   ; reset ; mainStore:inst|tempOutput[5] ; CP       ;
+; N/A   ; None         ; 4.503 ns   ; reset ; mainStore:inst|tempOutput[6] ; CP       ;
+; N/A   ; None         ; 0.344 ns   ; reset ; mo:inst19|NEXTSTATE.s1_1108  ; CP       ;
+; N/A   ; None         ; 0.291 ns   ; reset ; mo:inst19|NEXTSTATE.s0_1136  ; CP       ;
++-------+--------------+------------+-------+------------------------------+----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                                                                ;
++-----------------------------------------+-----------------------------------------------------+------------+--------------------------+---------------+------------+
+; Slack                                   ; Required tco                                        ; Actual tco ; From                     ; To            ; From Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+--------------------------+---------------+------------+
+; N/A                                     ; None                                                ; 12.009 ns  ; mo:inst19|SEL_ACC[1]     ; ACC_INPUT1[2] ; CP         ;
+; N/A                                     ; None                                                ; 11.960 ns  ; mo:inst19|SEL_ACC[0]     ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.904 ns  ; mo:inst19|SEL_ACC[0]     ; ACC_INPUT1[2] ; CP         ;
+; N/A                                     ; None                                                ; 11.891 ns  ; zongxian:inst1|data[1]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.883 ns  ; zongxian:inst1|data[5]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.838 ns  ; zongxian:inst1|data[1]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.816 ns  ; zongxian:inst1|data[4]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.802 ns  ; mo:inst19|SEL_ACC[0]     ; ACC_INPUT1[1] ; CP         ;
+; N/A                                     ; None                                                ; 11.798 ns  ; mo:inst19|SEL_ACC[1]     ; ACC_INPUT1[1] ; CP         ;
+; N/A                                     ; None                                                ; 11.796 ns  ; zongxian:inst1|data[7]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.793 ns  ; mo:inst19|LOAD_PC        ; load_pc       ; CP         ;
+; N/A                                     ; None                                                ; 11.788 ns  ; zongxian:inst1|data[1]   ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 11.775 ns  ; mo:inst19|SEL_C[1]       ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.753 ns  ; zongxian:inst1|data[0]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.751 ns  ; zongxian:inst1|data[2]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.737 ns  ; zongxian:inst1|data[2]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.730 ns  ; mo:inst19|SEL_ACC[1]     ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.705 ns  ; zongxian:inst1|data[6]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.678 ns  ; zongxian:inst1|data[0]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.673 ns  ; zongxian:inst1|data[2]   ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 11.634 ns  ; mo:inst19|SEL_ACC[0]     ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 11.628 ns  ; zongxian:inst1|data[0]   ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 11.622 ns  ; mo:inst19|SEL_ACC[1]     ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.602 ns  ; zongxian:inst1|data[3]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.563 ns  ; mo:inst19|SEL_C[0]       ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.560 ns  ; zongxian:inst1|data[3]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.547 ns  ; zongxian:inst1|data[5]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.542 ns  ; mo:inst19|SEL_ACC[1]     ; ACC_INPUT1[3] ; CP         ;
+; N/A                                     ; None                                                ; 11.520 ns  ; ACC:inst10|ACC_output[1] ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.502 ns  ; zongxian:inst1|data[1]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.495 ns  ; zongxian:inst1|data[5]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.486 ns  ; zongxian:inst1|data[5]   ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.480 ns  ; zongxian:inst1|data[4]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.469 ns  ; zongxian:inst1|data[1]   ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.461 ns  ; ACC:inst10|ACC_output[1] ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.460 ns  ; zongxian:inst1|data[7]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.455 ns  ; zongxian:inst1|data[0]   ; cout[0]       ; CP         ;
+; N/A                                     ; None                                                ; 11.453 ns  ; zongxian:inst1|data[5]   ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 11.447 ns  ; zongxian:inst1|data[4]   ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.440 ns  ; mo:inst19|SEL_Q[1]       ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.440 ns  ; mo:inst19|SEL_Q[1]       ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.436 ns  ; zongxian:inst1|data[1]   ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 11.428 ns  ; zongxian:inst1|data[4]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.420 ns  ; zongxian:inst1|data[5]   ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 11.415 ns  ; zongxian:inst1|data[2]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.414 ns  ; zongxian:inst1|data[4]   ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 11.411 ns  ; ACC:inst10|ACC_output[1] ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 11.408 ns  ; zongxian:inst1|data[7]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.396 ns  ; mo:inst19|SEL_ACC[0]     ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.393 ns  ; ACC:inst10|ACC_output[5] ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.382 ns  ; zongxian:inst1|data[2]   ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.378 ns  ; ACC:inst10|ACC_output[3] ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.375 ns  ; zongxian:inst1|data[1]   ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 11.369 ns  ; zongxian:inst1|data[6]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.362 ns  ; zongxian:inst1|data[1]   ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 11.353 ns  ; zongxian:inst1|data[4]   ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 11.351 ns  ; ACC:inst10|ACC_output[6] ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.350 ns  ; ACC:inst10|ACC_output[3] ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.349 ns  ; zongxian:inst1|data[2]   ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 11.349 ns  ; ACC:inst10|ACC_output[4] ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.342 ns  ; zongxian:inst1|data[0]   ; ACC_INPUT1[0] ; CP         ;
+; N/A                                     ; None                                                ; 11.342 ns  ; zongxian:inst1|data[0]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.337 ns  ; mo:inst19|SEL_Q[1]       ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 11.336 ns  ; zongxian:inst1|data[5]   ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 11.334 ns  ; mo:inst19|SEL_C[1]       ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 11.334 ns  ; ACC:inst10|ACC_output[7] ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.318 ns  ; zongxian:inst1|data[4]   ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 11.317 ns  ; zongxian:inst1|data[6]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.311 ns  ; CX:inst13|CX_output[4]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.309 ns  ; zongxian:inst1|data[0]   ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.305 ns  ; mo:inst19|SEL_ACC[1]     ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 11.291 ns  ; zongxian:inst1|data[1]   ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 11.291 ns  ; ACC:inst10|ACC_output[2] ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.290 ns  ; mo:inst19|SEL_ACC[0]     ; ACC_INPUT1[4] ; CP         ;
+; N/A                                     ; None                                                ; 11.288 ns  ; zongxian:inst1|data[2]   ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 11.278 ns  ; CX:inst13|CX_output[1]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.277 ns  ; ACC:inst10|ACC_output[2] ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.276 ns  ; zongxian:inst1|data[0]   ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 11.275 ns  ; zongxian:inst1|data[2]   ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 11.269 ns  ; zongxian:inst1|data[4]   ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 11.266 ns  ; zongxian:inst1|data[3]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.243 ns  ; CX:inst13|CX_output[5]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.237 ns  ; mo:inst19|SEL_C[1]       ; CX_INPUT[1]   ; CP         ;
+; N/A                                     ; None                                                ; 11.233 ns  ; zongxian:inst1|data[3]   ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.230 ns  ; mo:inst19|SEL_ACC[0]     ; ACC_INPUT1[3] ; CP         ;
+; N/A                                     ; None                                                ; 11.227 ns  ; zongxian:inst1|data[1]   ; CX_INPUT[3]   ; CP         ;
+; N/A                                     ; None                                                ; 11.225 ns  ; ACC:inst10|ACC_output[2] ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 11.225 ns  ; CX:inst13|CX_output[1]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.221 ns  ; CX:inst13|CX_output[6]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.220 ns  ; zongxian:inst1|data[6]   ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 11.215 ns  ; zongxian:inst1|data[0]   ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 11.204 ns  ; zongxian:inst1|data[2]   ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 11.202 ns  ; zongxian:inst1|data[0]   ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 11.201 ns  ; mo:inst19|SEL_C[1]       ; CX_INPUT[0]   ; CP         ;
+; N/A                                     ; None                                                ; 11.200 ns  ; zongxian:inst1|data[3]   ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 11.175 ns  ; CX:inst13|CX_output[1]   ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 11.173 ns  ; CX:inst13|CX_output[2]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.159 ns  ; CX:inst13|CX_output[2]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.146 ns  ; CX:inst13|CX_output[3]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.143 ns  ; CX:inst13|CX_output[7]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 11.140 ns  ; zongxian:inst1|data[2]   ; CX_INPUT[3]   ; CP         ;
+; N/A                                     ; None                                                ; 11.139 ns  ; zongxian:inst1|data[3]   ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 11.136 ns  ; zongxian:inst1|data[6]   ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 11.131 ns  ; zongxian:inst1|data[0]   ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 11.126 ns  ; zongxian:inst1|data[3]   ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 11.125 ns  ; ACC:inst10|ACC_output[1] ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.111 ns  ; mo:inst19|SEL_C[0]       ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 11.104 ns  ; CX:inst13|CX_output[3]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.104 ns  ; mo:inst19|SEL_Q[1]       ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.099 ns  ; mo:inst19|SEL_C[0]       ; CX_INPUT[1]   ; CP         ;
+; N/A                                     ; None                                                ; 11.095 ns  ; CX:inst13|CX_output[2]   ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 11.092 ns  ; ACC:inst10|ACC_output[1] ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.080 ns  ; CX:inst13|CX_output[0]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.071 ns  ; mo:inst19|SEL_Q[1]       ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.069 ns  ; mo:inst19|SEL_C[1]       ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 11.068 ns  ; mo:inst19|SEL_C[0]       ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 11.067 ns  ; zongxian:inst1|data[0]   ; CX_INPUT[3]   ; CP         ;
+; N/A                                     ; None                                                ; 11.059 ns  ; ACC:inst10|ACC_output[1] ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 11.057 ns  ; ACC:inst10|ACC_output[5] ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.055 ns  ; zongxian:inst1|data[3]   ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 11.042 ns  ; ACC:inst10|ACC_output[3] ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.038 ns  ; ACC:inst10|ACC_output[0] ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.038 ns  ; mo:inst19|SEL_Q[1]       ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 11.015 ns  ; ACC:inst10|ACC_output[6] ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.013 ns  ; ACC:inst10|ACC_output[4] ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 11.009 ns  ; ACC:inst10|ACC_output[3] ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.008 ns  ; ACC:inst10|ACC_output[5] ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 11.005 ns  ; ACC:inst10|ACC_output[5] ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 11.005 ns  ; CX:inst13|CX_output[0]   ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 10.998 ns  ; ACC:inst10|ACC_output[1] ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 10.998 ns  ; ACC:inst10|ACC_output[7] ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 10.985 ns  ; ACC:inst10|ACC_output[1] ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 10.980 ns  ; ACC:inst10|ACC_output[4] ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 10.977 ns  ; mo:inst19|SEL_Q[1]       ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 10.976 ns  ; ACC:inst10|ACC_output[3] ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 10.975 ns  ; ACC:inst10|ACC_output[5] ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 10.975 ns  ; CX:inst13|CX_output[4]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 10.963 ns  ; ACC:inst10|ACC_output[6] ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 10.963 ns  ; mo:inst19|SEL_C[0]       ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 10.963 ns  ; zongxian:inst1|data[3]   ; CX_INPUT[3]   ; CP         ;
+; N/A                                     ; None                                                ; 10.963 ns  ; ACC:inst10|ACC_output[0] ; CX_INPUT[7]   ; CP         ;
+; N/A                                     ; None                                                ; 10.962 ns  ; mo:inst19|SEL_Q[1]       ; cout[0]       ; CP         ;
+; N/A                                     ; None                                                ; 10.961 ns  ; ACC:inst10|ACC_output[4] ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 10.961 ns  ; zongxian:inst1|data[1]   ; ACC_INPUT1[1] ; CP         ;
+; N/A                                     ; None                                                ; 10.957 ns  ; mo:inst19|SEL_ACC[1]     ; ACC_INPUT1[4] ; CP         ;
+; N/A                                     ; None                                                ; 10.955 ns  ; CX:inst13|CX_output[0]   ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 10.955 ns  ; zongxian:inst1|data[1]   ; ACC_INPUT1[2] ; CP         ;
+; N/A                                     ; None                                                ; 10.955 ns  ; ACC:inst10|ACC_output[2] ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 10.954 ns  ; zongxian:inst1|data[1]   ; CX_INPUT[1]   ; CP         ;
+; N/A                                     ; None                                                ; 10.947 ns  ; ACC:inst10|ACC_output[4] ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 10.946 ns  ; ACC:inst10|ACC_output[7] ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 10.942 ns  ; mo:inst19|SEL_Q[1]       ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 10.942 ns  ; CX:inst13|CX_output[4]   ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 10.933 ns  ; zongxian:inst1|data[5]   ; cout[7]       ; CP         ;
+; N/A                                     ; None                                                ; 10.933 ns  ; mo:inst19|SEL_C[0]       ; CX_INPUT[0]   ; CP         ;
+; N/A                                     ; None                                                ; 10.930 ns  ; ACC:inst10|ACC_output[5] ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 10.925 ns  ; mo:inst19|SEL_C[1]       ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 10.924 ns  ; mo:inst19|SEL_C[1]       ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 10.923 ns  ; CX:inst13|CX_output[4]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 10.922 ns  ; ACC:inst10|ACC_output[2] ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 10.919 ns  ; zongxian:inst1|data[1]   ; cout[2]       ; CP         ;
+; N/A                                     ; None                                                ; 10.915 ns  ; ACC:inst10|ACC_output[3] ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 10.914 ns  ; ACC:inst10|ACC_output[1] ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 10.913 ns  ; ACC:inst10|ACC_output[0] ; CX_INPUT[2]   ; CP         ;
+; N/A                                     ; None                                                ; 10.909 ns  ; CX:inst13|CX_output[4]   ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 10.907 ns  ; CX:inst13|CX_output[5]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 10.902 ns  ; ACC:inst10|ACC_output[3] ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 10.894 ns  ; zongxian:inst1|data[1]   ; ACC_INPUT1[3] ; CP         ;
+; N/A                                     ; None                                                ; 10.893 ns  ; mo:inst19|SEL_Q[1]       ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 10.889 ns  ; ACC:inst10|ACC_output[2] ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 10.889 ns  ; CX:inst13|CX_output[1]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 10.888 ns  ; zongxian:inst1|data[1]   ; cout[7]       ; CP         ;
+; N/A                                     ; None                                                ; 10.886 ns  ; ACC:inst10|ACC_output[4] ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 10.885 ns  ; CX:inst13|CX_output[6]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 10.881 ns  ; mo:inst19|SEL_C[1]       ; CX_INPUT[3]   ; CP         ;
+; N/A                                     ; None                                                ; 10.874 ns  ; ACC:inst10|ACC_output[6] ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 10.866 ns  ; zongxian:inst1|data[4]   ; cout[7]       ; CP         ;
+; N/A                                     ; None                                                ; 10.859 ns  ; ACC:inst10|ACC_output[4] ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 10.856 ns  ; CX:inst13|CX_output[1]   ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 10.855 ns  ; CX:inst13|CX_output[5]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 10.850 ns  ; ACC:inst10|ACC_output[1] ; CX_INPUT[3]   ; CP         ;
+; N/A                                     ; None                                                ; 10.849 ns  ; mo:inst19|SEL_Q[1]       ; ACC_INPUT1[0] ; CP         ;
+; N/A                                     ; None                                                ; 10.848 ns  ; CX:inst13|CX_output[4]   ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 10.846 ns  ; zongxian:inst1|data[7]   ; cout[7]       ; CP         ;
+; N/A                                     ; None                                                ; 10.846 ns  ; ACC:inst10|ACC_output[5] ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 10.846 ns  ; CX:inst13|CX_output[5]   ; ACC_INPUT1[5] ; CP         ;
+; N/A                                     ; None                                                ; 10.840 ns  ; zongxian:inst1|data[2]   ; ACC_INPUT1[2] ; CP         ;
+; N/A                                     ; None                                                ; 10.837 ns  ; CX:inst13|CX_output[2]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 10.833 ns  ; CX:inst13|CX_output[6]   ; PWBZ          ; CP         ;
+; N/A                                     ; None                                                ; 10.831 ns  ; ACC:inst10|ACC_output[3] ; CX_INPUT[6]   ; CP         ;
+; N/A                                     ; None                                                ; 10.828 ns  ; ACC:inst10|ACC_output[2] ; ACC_INPUT1[6] ; CP         ;
+; N/A                                     ; None                                                ; 10.823 ns  ; CX:inst13|CX_output[1]   ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 10.823 ns  ; zongxian:inst1|data[0]   ; ACC_INPUT1[1] ; CP         ;
+; N/A                                     ; None                                                ; 10.816 ns  ; zongxian:inst1|data[0]   ; CX_INPUT[1]   ; CP         ;
+; N/A                                     ; None                                                ; 10.815 ns  ; ACC:inst10|ACC_output[2] ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 10.813 ns  ; CX:inst13|CX_output[4]   ; CX_INPUT[4]   ; CP         ;
+; N/A                                     ; None                                                ; 10.813 ns  ; CX:inst13|CX_output[5]   ; CX_INPUT[5]   ; CP         ;
+; N/A                                     ; None                                                ; 10.810 ns  ; CX:inst13|CX_output[3]   ; ACC_INPUT1[7] ; CP         ;
+; N/A                                     ; None                                                ; 10.808 ns  ; zongxian:inst1|data[5]   ; cout[5]       ; CP         ;
+; N/A                                     ; None                                                ; 10.807 ns  ; zongxian:inst1|data[2]   ; ACC_INPUT1[3] ; CP         ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;                          ;               ;            ;
++-----------------------------------------+-----------------------------------------------------+------------+--------------------------+---------------+------------+
+
+
++-------------------------------------------------------------------------------------------+
+; th                                                                                        ;
++---------------+-------------+-----------+-------+------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From  ; To                           ; To Clock ;
++---------------+-------------+-----------+-------+------------------------------+----------+
+; N/A           ; None        ; 0.757 ns  ; reset ; mo:inst19|NEXTSTATE.s0_1136  ; CP       ;
+; N/A           ; None        ; 0.633 ns  ; reset ; mo:inst19|NEXTSTATE.s1_1108  ; CP       ;
+; N/A           ; None        ; -4.264 ns ; reset ; mainStore:inst|tempOutput[7] ; CP       ;
+; N/A           ; None        ; -4.264 ns ; reset ; mainStore:inst|tempOutput[5] ; CP       ;
+; N/A           ; None        ; -4.264 ns ; reset ; mainStore:inst|tempOutput[6] ; CP       ;
+; N/A           ; None        ; -4.379 ns ; reset ; mainStore:inst|tempOutput[0] ; CP       ;
+; N/A           ; None        ; -4.572 ns ; reset ; mainStore:inst|tempOutput[2] ; CP       ;
+; N/A           ; None        ; -4.572 ns ; reset ; mainStore:inst|tempOutput[1] ; CP       ;
+; N/A           ; None        ; -4.896 ns ; reset ; mainStore:inst|tempOutput[4] ; CP       ;
+; N/A           ; None        ; -4.896 ns ; reset ; mainStore:inst|tempOutput[3] ; CP       ;
++---------------+-------------+-----------+-------+------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 7.2 Build 151 09/26/2007 SJ Full Version
+    Info: Processing started: Sat Nov 30 11:18:19 2019
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off BX -c BX --timing_analysis_only
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "mo:inst19|SEL_Q[1]" is a latch
+    Warning: Node "zongxian:inst1|data[0]" is a latch
+    Warning: Node "mo:inst19|SEL_ACC[1]" is a latch
+    Warning: Node "mo:inst19|SEL_ACC[0]" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s10_856" is a latch
+    Warning: Node "mo:inst19|SEL_C[1]" is a latch
+    Warning: Node "mo:inst19|SEL_C[0]" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s13_772" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s8_912" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s7_940" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s5_996" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s15_716" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s3_1052" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s6_968" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s2_1080" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s0_1136" is a latch
+    Warning: Node "zongxian:inst1|data[7]" is a latch
+    Warning: Node "zongxian:inst1|data[5]" is a latch
+    Warning: Node "zongxian:inst1|data[6]" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s4_1024" is a latch
+    Warning: Node "mo:inst19|SEL_DATA[0]" is a latch
+    Warning: Node "mo:inst19|SEL_DATA[1]" is a latch
+    Warning: Node "mo:inst19|LOAD_BX" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s14_744" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s1_1108" is a latch
+    Warning: Node "mo:inst19|LOAD_PC" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s12_800" is a latch
+    Warning: Node "zongxian:inst1|data[4]" is a latch
+    Warning: Node "mo:inst19|NEXTSTATE.s11_828" is a latch
+    Warning: Node "zongxian:inst1|data[2]" is a latch
+    Warning: Node "zongxian:inst1|data[3]" is a latch
+    Warning: Node "zongxian:inst1|data[1]" is a latch
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CP" is an undefined clock
+Warning: Found 76 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "zongxian:inst1|data[1]" as buffer
+    Info: Detected ripple clock "zongxian:inst1|data[3]" as buffer
+    Info: Detected ripple clock "zongxian:inst1|data[2]" as buffer
+    Info: Detected ripple clock "zongxian:inst1|data[4]" as buffer
+    Info: Detected ripple clock "zongxian:inst1|data[6]" as buffer
+    Info: Detected ripple clock "zongxian:inst1|data[5]" as buffer
+    Info: Detected ripple clock "zongxian:inst1|data[7]" as buffer
+    Info: Detected ripple clock "zongxian:inst1|data[0]" as buffer
+    Info: Detected ripple clock "mo:inst19|SEL_Q[1]" as buffer
+    Info: Detected ripple clock "CX:inst13|CX_output[2]" as buffer
+    Info: Detected ripple clock "CX:inst13|CX_output[1]" as buffer
+    Info: Detected ripple clock "CX:inst13|CX_output[3]" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~197" as buffer
+    Info: Detected gated clock "Sel_Q:inst15|output[2]~99" as buffer
+    Info: Detected ripple clock "ACC:inst10|ACC_output[2]" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~193" as buffer
+    Info: Detected gated clock "Sel_Q:inst15|output[1]~100" as buffer
+    Info: Detected ripple clock "ACC:inst10|ACC_output[1]" as buffer
+    Info: Detected ripple clock "CX:inst13|CX_output[6]" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~201" as buffer
+    Info: Detected gated clock "Sel_Q:inst15|output[3]~98" as buffer
+    Info: Detected ripple clock "ACC:inst10|ACC_output[3]" as buffer
+    Info: Detected ripple clock "CX:inst13|CX_output[4]" as buffer
+    Info: Detected ripple clock "CX:inst13|CX_output[7]" as buffer
+    Info: Detected ripple clock "CX:inst13|CX_output[5]" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~200" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~204" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~196" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~221" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~213" as buffer
+    Info: Detected gated clock "Sel_Q:inst15|output[6]~103" as buffer
+    Info: Detected ripple clock "ACC:inst10|ACC_output[6]" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~205" as buffer
+    Info: Detected gated clock "Sel_Q:inst15|output[4]~97" as buffer
+    Info: Detected ripple clock "ACC:inst10|ACC_output[4]" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~217" as buffer
+    Info: Detected gated clock "Sel_Q:inst15|output[7]~104" as buffer
+    Info: Detected ripple clock "ACC:inst10|ACC_output[7]" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~209" as buffer
+    Info: Detected gated clock "Sel_Q:inst15|output[5]~102" as buffer
+    Info: Detected ripple clock "ACC:inst10|ACC_output[5]" as buffer
+    Info: Detected gated clock "mo:inst19|Selector24~22" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~216" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~208" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~220" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~212" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s12" as buffer
+    Info: Detected gated clock "zongxian:inst1|data[7]~1919" as buffer
+    Info: Detected gated clock "mo:inst19|M_R~6" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s1" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s14" as buffer
+    Info: Detected gated clock "mo:inst19|WideOr27" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s4" as buffer
+    Info: Detected gated clock "mo:inst19|WideOr19~13" as buffer
+    Info: Detected gated clock "mo:inst19|Selector67~88" as buffer
+    Info: Detected ripple clock "ir:inst9|command[1]" as buffer
+    Info: Detected ripple clock "ir:inst9|command[0]" as buffer
+    Info: Detected ripple clock "ir:inst9|command[2]" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s2" as buffer
+    Info: Detected gated clock "zongxian:inst1|data[5]~1905" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s6" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s0" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s3" as buffer
+    Info: Detected gated clock "zongxian:inst1|data[7]~1906" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s5" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s7" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s8" as buffer
+    Info: Detected gated clock "zongxian:inst1|data[4]~27" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s13" as buffer
+    Info: Detected gated clock "mo:inst19|WideOr38~1" as buffer
+    Info: Detected gated clock "mo:inst19|WideOr22~1" as buffer
+    Info: Detected ripple clock "mo:inst19|PRESENTSTATE.s10" as buffer
+    Info: Detected ripple clock "CX:inst13|CX_output[0]" as buffer
+    Info: Detected gated clock "Sel_Q:inst15|output[0]~101" as buffer
+    Info: Detected ripple clock "ACC:inst10|ACC_output[0]" as buffer
+    Info: Detected gated clock "alu:inst12|Add4~192" as buffer
+Info: Clock "CP" has Internal fmax of 85.12 MHz between source register "mo:inst19|SEL_DATA[0]" and destination register "MDR:inst5|MDR_output[0]" (period= 11.748 ns)
+    Info: + Longest register to register delay is 1.165 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X17_Y15_N2; Fanout = 2; REG Node = 'mo:inst19|SEL_DATA[0]'
+        Info: 2: + IC(0.224 ns) + CELL(0.225 ns) = 0.449 ns; Loc. = LCCOMB_X17_Y15_N4; Fanout = 8; COMB Node = 'Sel_Data:inst4|Equal0~13'
+        Info: 3: + IC(0.213 ns) + CELL(0.503 ns) = 1.165 ns; Loc. = LCFF_X17_Y15_N9; Fanout = 67; REG Node = 'MDR:inst5|MDR_output[0]'
+        Info: Total cell delay = 0.728 ns ( 62.49 % )
+        Info: Total interconnect delay = 0.437 ns ( 37.51 % )
+    Info: - Smallest clock skew is -4.619 ns
+        Info: + Shortest clock path from clock "CP" to destination register is 2.463 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 33; CLK Node = 'CP'
+            Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 567; COMB Node = 'CP~clkctrl'
+            Info: 3: + IC(0.648 ns) + CELL(0.618 ns) = 2.463 ns; Loc. = LCFF_X17_Y15_N9; Fanout = 67; REG Node = 'MDR:inst5|MDR_output[0]'
+            Info: Total cell delay = 1.472 ns ( 59.76 % )
+            Info: Total interconnect delay = 0.991 ns ( 40.24 % )
+        Info: - Longest clock path from clock "CP" to source register is 7.082 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 33; CLK Node = 'CP'
+            Info: 2: + IC(1.240 ns) + CELL(0.712 ns) = 2.806 ns; Loc. = LCFF_X18_Y14_N23; Fanout = 3; REG Node = 'mo:inst19|PRESENTSTATE.s1'
+            Info: 3: + IC(0.230 ns) + CELL(0.225 ns) = 3.261 ns; Loc. = LCCOMB_X18_Y14_N2; Fanout = 11; COMB Node = 'mo:inst19|M_R~6'
+            Info: 4: + IC(0.553 ns) + CELL(0.225 ns) = 4.039 ns; Loc. = LCCOMB_X17_Y15_N10; Fanout = 9; COMB Node = 'mo:inst19|WideOr27'
+            Info: 5: + IC(1.901 ns) + CELL(0.000 ns) = 5.940 ns; Loc. = CLKCTRL_G11; Fanout = 2; COMB Node = 'mo:inst19|WideOr27~clkctrl'
+            Info: 6: + IC(0.917 ns) + CELL(0.225 ns) = 7.082 ns; Loc. = LCCOMB_X17_Y15_N2; Fanout = 2; REG Node = 'mo:inst19|SEL_DATA[0]'
+            Info: Total cell delay = 2.241 ns ( 31.64 % )
+            Info: Total interconnect delay = 4.841 ns ( 68.36 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.090 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 105 non-operational path(s) clocked by clock "CP" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "mo:inst19|PRESENTSTATE.s12" and destination pin or register "mo:inst19|LOAD_PC" for clock "CP" (Hold time is 3.894 ns)
+    Info: + Largest clock skew is 5.241 ns
+        Info: + Longest clock path from clock "CP" to destination register is 7.953 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 33; CLK Node = 'CP'
+            Info: 2: + IC(1.425 ns) + CELL(0.712 ns) = 2.991 ns; Loc. = LCFF_X19_Y14_N13; Fanout = 5; REG Node = 'mo:inst19|PRESENTSTATE.s5'
+            Info: 3: + IC(0.366 ns) + CELL(0.228 ns) = 3.585 ns; Loc. = LCCOMB_X18_Y14_N24; Fanout = 2; COMB Node = 'zongxian:inst1|data[5]~1905'
+            Info: 4: + IC(0.221 ns) + CELL(0.225 ns) = 4.031 ns; Loc. = LCCOMB_X18_Y14_N8; Fanout = 10; COMB Node = 'zongxian:inst1|data[7]~1906'
+            Info: 5: + IC(0.582 ns) + CELL(0.225 ns) = 4.838 ns; Loc. = LCCOMB_X18_Y13_N22; Fanout = 3; COMB Node = 'zongxian:inst1|data[7]~1919'
+            Info: 6: + IC(0.227 ns) + CELL(0.225 ns) = 5.290 ns; Loc. = LCCOMB_X18_Y13_N4; Fanout = 11; REG Node = 'zongxian:inst1|data[5]'
+            Info: 7: + IC(0.269 ns) + CELL(0.346 ns) = 5.905 ns; Loc. = LCCOMB_X18_Y13_N8; Fanout = 3; COMB Node = 'Sel_Q:inst15|output[5]~102'
+            Info: 8: + IC(0.538 ns) + CELL(0.309 ns) = 6.752 ns; Loc. = LCCOMB_X22_Y13_N10; Fanout = 2; COMB Node = 'alu:inst12|Add4~213'
+            Info: 9: + IC(0.000 ns) + CELL(0.035 ns) = 6.787 ns; Loc. = LCCOMB_X22_Y13_N12; Fanout = 2; COMB Node = 'alu:inst12|Add4~217'
+            Info: 10: + IC(0.000 ns) + CELL(0.125 ns) = 6.912 ns; Loc. = LCCOMB_X22_Y13_N14; Fanout = 7; COMB Node = 'alu:inst12|Add4~220'
+            Info: 11: + IC(0.434 ns) + CELL(0.357 ns) = 7.703 ns; Loc. = LCCOMB_X23_Y13_N14; Fanout = 1; COMB Node = 'mo:inst19|Selector24~21'
+            Info: 12: + IC(0.197 ns) + CELL(0.053 ns) = 7.953 ns; Loc. = LCCOMB_X23_Y13_N24; Fanout = 2; REG Node = 'mo:inst19|LOAD_PC'
+            Info: Total cell delay = 3.694 ns ( 46.45 % )
+            Info: Total interconnect delay = 4.259 ns ( 53.55 % )
+        Info: - Shortest clock path from clock "CP" to source register is 2.712 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 33; CLK Node = 'CP'
+            Info: 2: + IC(1.240 ns) + CELL(0.618 ns) = 2.712 ns; Loc. = LCFF_X18_Y14_N21; Fanout = 4; REG Node = 'mo:inst19|PRESENTSTATE.s12'
+            Info: Total cell delay = 1.472 ns ( 54.28 % )
+            Info: Total interconnect delay = 1.240 ns ( 45.72 % )
+    Info: - Micro clock to output delay of source is 0.094 ns
+    Info: - Shortest register to register delay is 1.253 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X18_Y14_N21; Fanout = 4; REG Node = 'mo:inst19|PRESENTSTATE.s12'
+        Info: 2: + IC(1.025 ns) + CELL(0.228 ns) = 1.253 ns; Loc. = LCCOMB_X23_Y13_N24; Fanout = 2; REG Node = 'mo:inst19|LOAD_PC'
+        Info: Total cell delay = 0.228 ns ( 18.20 % )
+        Info: Total interconnect delay = 1.025 ns ( 81.80 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "mainStore:inst|tempOutput[4]" (data pin = "reset", clock pin = "CP") is 5.135 ns
+    Info: + Longest pin to register delay is 7.519 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_M21; Fanout = 4; PIN Node = 'reset'
+        Info: 2: + IC(4.134 ns) + CELL(0.346 ns) = 5.344 ns; Loc. = LCCOMB_X18_Y14_N0; Fanout = 8; COMB Node = 'mainStore:inst|tempOutput[7]~3065'
+        Info: 3: + IC(1.429 ns) + CELL(0.746 ns) = 7.519 ns; Loc. = LCFF_X22_Y16_N25; Fanout = 2; REG Node = 'mainStore:inst|tempOutput[4]'
+        Info: Total cell delay = 1.956 ns ( 26.01 % )
+        Info: Total interconnect delay = 5.563 ns ( 73.99 % )
+    Info: + Micro setup delay of destination is 0.090 ns
+    Info: - Shortest clock path from clock "CP" to destination register is 2.474 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 33; CLK Node = 'CP'
+        Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 567; COMB Node = 'CP~clkctrl'
+        Info: 3: + IC(0.659 ns) + CELL(0.618 ns) = 2.474 ns; Loc. = LCFF_X22_Y16_N25; Fanout = 2; REG Node = 'mainStore:inst|tempOutput[4]'
+        Info: Total cell delay = 1.472 ns ( 59.50 % )
+        Info: Total interconnect delay = 1.002 ns ( 40.50 % )
+Info: tco from clock "CP" to destination pin "ACC_INPUT1[2]" through register "mo:inst19|SEL_ACC[1]" is 12.009 ns
+    Info: + Longest clock path from clock "CP" to source register is 6.181 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 33; CLK Node = 'CP'
+        Info: 2: + IC(1.238 ns) + CELL(0.712 ns) = 2.804 ns; Loc. = LCFF_X17_Y14_N11; Fanout = 7; REG Node = 'mo:inst19|PRESENTSTATE.s8'
+        Info: 3: + IC(0.578 ns) + CELL(0.225 ns) = 3.607 ns; Loc. = LCCOMB_X19_Y14_N2; Fanout = 2; COMB Node = 'mo:inst19|WideOr22~1'
+        Info: 4: + IC(1.460 ns) + CELL(0.000 ns) = 5.067 ns; Loc. = CLKCTRL_G13; Fanout = 2; COMB Node = 'mo:inst19|WideOr22~1clkctrl'
+        Info: 5: + IC(0.889 ns) + CELL(0.225 ns) = 6.181 ns; Loc. = LCCOMB_X17_Y14_N8; Fanout = 17; REG Node = 'mo:inst19|SEL_ACC[1]'
+        Info: Total cell delay = 2.016 ns ( 32.62 % )
+        Info: Total interconnect delay = 4.165 ns ( 67.38 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Longest register to pin delay is 5.828 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X17_Y14_N8; Fanout = 17; REG Node = 'mo:inst19|SEL_ACC[1]'
+        Info: 2: + IC(1.640 ns) + CELL(0.346 ns) = 1.986 ns; Loc. = LCCOMB_X21_Y13_N30; Fanout = 1; COMB Node = 'Sel_ACC:inst11|output[2]~646'
+        Info: 3: + IC(1.910 ns) + CELL(1.932 ns) = 5.828 ns; Loc. = PIN_G13; Fanout = 0; PIN Node = 'ACC_INPUT1[2]'
+        Info: Total cell delay = 2.278 ns ( 39.09 % )
+        Info: Total interconnect delay = 3.550 ns ( 60.91 % )
+Info: th for register "mo:inst19|NEXTSTATE.s0_1136" (data pin = "reset", clock pin = "CP") is 0.757 ns
+    Info: + Longest clock path from clock "CP" to destination register is 6.571 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 33; CLK Node = 'CP'
+        Info: 2: + IC(1.425 ns) + CELL(0.712 ns) = 2.991 ns; Loc. = LCFF_X19_Y14_N17; Fanout = 16; REG Node = 'mo:inst19|PRESENTSTATE.s2'
+        Info: 3: + IC(0.495 ns) + CELL(0.053 ns) = 3.539 ns; Loc. = LCCOMB_X17_Y14_N4; Fanout = 1; COMB Node = 'mo:inst19|Selector67~88'
+        Info: 4: + IC(1.907 ns) + CELL(0.000 ns) = 5.446 ns; Loc. = CLKCTRL_G2; Fanout = 15; COMB Node = 'mo:inst19|Selector67~88clkctrl'
+        Info: 5: + IC(0.900 ns) + CELL(0.225 ns) = 6.571 ns; Loc. = LCCOMB_X18_Y14_N12; Fanout = 1; REG Node = 'mo:inst19|NEXTSTATE.s0_1136'
+        Info: Total cell delay = 1.844 ns ( 28.06 % )
+        Info: Total interconnect delay = 4.727 ns ( 71.94 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: - Shortest pin to register delay is 5.814 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_M21; Fanout = 4; PIN Node = 'reset'
+        Info: 2: + IC(4.130 ns) + CELL(0.346 ns) = 5.340 ns; Loc. = LCCOMB_X18_Y14_N16; Fanout = 1; COMB Node = 'mo:inst19|Selector66~25'
+        Info: 3: + IC(0.246 ns) + CELL(0.228 ns) = 5.814 ns; Loc. = LCCOMB_X18_Y14_N12; Fanout = 1; REG Node = 'mo:inst19|NEXTSTATE.s0_1136'
+        Info: Total cell delay = 1.438 ns ( 24.73 % )
+        Info: Total interconnect delay = 4.376 ns ( 75.27 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 36 warnings
+    Info: Allocated 191 megabytes of memory during processing
+    Info: Processing ended: Sat Nov 30 11:18:20 2019
+    Info: Elapsed time: 00:00:01
+
+

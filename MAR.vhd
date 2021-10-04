@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_1164.all;
+entity  MAR  is
+	port(
+	       reset    : in std_logic;
+	       clk      : in std_logic;
+	       Load_MAR : in std_logic;
+	       MAR_input : in std_logic_vector (7 downto 0);
+	       MAR_output :buffer std_logic_vector (7 downto 0)       
+	);
+end MAR ;
+ARCHITECTURE MAR_body OF MAR  IS
+BEGIN	
+	PROCESS (Load_MAR ,MAR_input,reset)		 
+begin					
+    if(reset = '1') then 
+       MAR_output <= "00000000";
+     elsif (clk'event and clk = '1' and Load_MAR  = '1') then 
+       MAR_output <= MAR_input;
+     end if;
+end process;
+end;

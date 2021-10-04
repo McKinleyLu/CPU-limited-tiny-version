@@ -1,0 +1,17 @@
+Fitter Status : Successful - Sat Nov 30 11:18:12 2019
+Quartus II Version : 7.2 Build 151 09/26/2007 SJ Full Version
+Revision Name : BX
+Top-level Entity Name : main
+Family : Stratix II
+Device : EP2S15F484C3
+Timing Models : Final
+Logic utilization : 6 %
+    Combinational ALUTs : 436 / 12,480 ( 3 % )
+    Dedicated logic registers : 599 / 12,480 ( 5 % )
+Total registers : 599
+Total pins : 133 / 343 ( 39 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 419,328 ( 0 % )
+DSP block 9-bit elements : 0 / 96 ( 0 % )
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )
