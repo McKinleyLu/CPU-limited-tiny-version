@@ -1,4 +1,4 @@
-# 模型机CPU - 组合逻辑-限制版
+# 模型机CPU - 微指令-限制版
 
 1. 本次实验选取的开发工具是quartusII，Quartus II 是Altera公司的综合性CPLD/FPGA开发软件，原理图、VHDL、VerilogHDL以及AHDL（Altera Hardware 支持Description Language）等多种设计输入形式，内嵌自有的综合器以及仿真器，可以完成从设计输入到硬件配置的完整PLD设计流程。Quartus II可以在Windows、Linux以及Unix上使用，除了可以使用Tcl脚本完成设计流程外，提供了完善的用户图形界面设计方式。具有运行速度快，界面统一，功能集中，易学易用等特点。
 
@@ -54,4 +54,4 @@
 
    ​    (5)减少器件，避免由器件过多而产生的延迟
 
-   ​    (6)注意，状态机内不要添加大量功能性代码，而是构造相应器件。状态机要保证控制状态的要求。# CPU-limited-tiny-version
+   ​    (6)注意，状态机内不要添加大量功能性代码，而是构造相应器件。状态机要保证控制状态的要求。
